@@ -1,0 +1,45 @@
+
+## Place the simulation file into the foldor that stores kmc program. ##
+
+{Elementary Reactions}
+(1)[S-] +(1)[S] >(1)[S-]  {0.0064}
+(1)[S-] +(1)[D1] >(1)[D1-]  { 0.128}
+(1)[D1-] +(1)[S] >(1)[S-]  {0.00007}
+(1)[I] +(1)[D1] >(1)[D1-]  {1}
+{End Reac}
+
+## Tips: {1:monomer  2:species   3:initiator}
+{Molecular Property}
+[S-] 2
+[S] 1
+[D1] 1
+[D1-] 2
+[I] 3
+{End Prop}
+
+{Molecular Number and Weight}
+[S] 4000000 104.06
+[D1] 1000000 248
+[I] 100000 0
+{End Num}
+
+{Modify Reaction Order}
+#1 1.00 0.50
+#2 1.00 0.50
+#3 1.00 0.50
+#4 1.00 0.25
+{End Order}
+
+{KMC Parameters}
+Volume 8e-015
+Termination_Condition [S]>0.97
+Sampling_Time 1000
+{End Para}
+
+## Tips: #1 feed times; feed "100000" [S] when the conversion of termination item is up to "0.5".
+{Multistep Feeding}
+#1 0.5 [S] 100000
+#1 0.5 [D1] 100000
+#2 0.6 [S] 100000
+#3 0.6 [D1] 100000
+{End Multi}
